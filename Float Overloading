@@ -1,0 +1,70 @@
+#include <iostream>
+using namespace std;
+
+class FLOAT
+{
+    float x;
+
+public:
+    FLOAT(float a = 0)
+    {
+        x = a;
+    }
+
+    FLOAT operator+(FLOAT f)
+    {
+        return FLOAT(x + f.x);
+    }
+
+    FLOAT operator-(FLOAT f)
+    {
+        return FLOAT(x - f.x);
+    }
+
+    FLOAT operator*(FLOAT f)
+    {
+        return FLOAT(x * f.x);
+    }
+
+    FLOAT operator/(FLOAT f)
+    {
+        return FLOAT(x / f.x);
+    }
+
+    void display()
+    {
+        cout << x << endl;
+    }
+};
+
+int main()
+{
+    FLOAT a(10), b(5), c;
+
+    c = a + b;
+    cout << "Addition: ";
+    c.display();
+
+    c = a - b;
+    cout << "Subtraction: ";
+    c.display();
+
+    c = a * b;
+    cout << "Multiplication: ";
+    c.display();
+
+    c = a / b;
+    cout << "Division: ";
+    c.display();
+
+    return 0;
+}
+
+Output:
+Addition: 15
+Subtraction: 5
+Multiplication: 50
+Division: 2
+
+
+=== Code Execution Successful ===
