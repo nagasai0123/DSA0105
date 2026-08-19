@@ -1,0 +1,56 @@
+#include <iostream>
+using namespace std;
+
+class movieMagic
+{
+    int year;
+    string title;
+    float rating;
+
+public:
+    void accept()
+    {
+        cout << "Enter year: ";
+        cin >> year;
+
+        cout << "Enter title: ";
+        cin >> title;
+
+        cout << "Enter rating: ";
+        cin >> rating;
+    }
+
+    void display()
+    {
+        cout << "\nMovie: " << title << endl;
+
+        if(rating >= 0.0 && rating <= 2.0)
+            cout << "Flop";
+        else if(rating <= 3.4)
+            cout << "Semi-hit";
+        else if(rating <= 4.5)
+            cout << "Hit";
+        else
+            cout << "Super Hit";
+    }
+};
+
+int main()
+{
+    movieMagic m;
+    m.accept();
+    m.display();
+
+    return 0;
+}
+
+
+Output:
+Enter year: 2026
+Enter title: Pushpa
+Enter rating: 9.3
+
+Movie: Pushpa
+Super Hit
+
+=== Code Execution Successful ===
