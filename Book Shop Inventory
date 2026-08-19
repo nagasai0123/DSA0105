@@ -1,0 +1,92 @@
+#include <iostream>
+using namespace std;
+
+class books
+{
+    string author, title, publisher;
+    float price;
+    int stock;
+
+    static int success, failure;
+
+public:
+    books(string a, string t, string p, float pr, int s)
+    {
+        author = a;
+        title = t;
+        publisher = p;
+        price = pr;
+        stock = s;
+    }
+
+    void search(string t, string a, int copies)
+    {
+        if(title == t && author == a)
+        {
+            cout << "\nBook Available";
+            cout << "\nTitle: " << title;
+            cout << "\nAuthor: " << author;
+            cout << "\nPrice: " << price;
+            cout << "\nPublisher: " << publisher;
+
+            if(copies <= stock)
+            {
+                cout << "\nTotal Cost: " << price * copies;
+                stock = stock - copies;
+                success++;
+            }
+            else
+            {
+                cout << "\nRequired copies not in stock";
+                failure++;
+            }
+        }
+        else
+        {
+            cout << "\nBook not available";
+            failure++;
+        }
+    }
+
+    static void report()
+    {
+        cout << "\nSuccessful Transactions: " << success;
+        cout << "\nUnsuccessful Transactions: " << failure;
+    }
+};
+
+int books::success = 0;
+int books::failure = 0;
+
+int main()
+{
+    books b("James", "C++", "ABC", 500, 10);
+
+    string title, author;
+    int copies;
+
+    cout << "Enter title: ";
+    cin >> title;
+
+    cout << "Enter author: ";
+    cin >> author;
+
+    cout << "Enter copies: ";
+    cin >> copies;
+
+    b.search(title, author, copies);
+    books::report();
+
+    return 0;
+}
+
+Output:
+Enter title: Pushpa
+Enter author: Sukumar
+Enter copies: 1000
+
+Book not available
+Successful Transactions: 0
+Unsuccessful Transactions: 1
+
+=== Code Execution Successful ===
