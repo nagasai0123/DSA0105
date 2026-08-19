@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+class Bank
+{
+    string name, type;
+    int accno;
+    double balance;
+
+public:
+    Bank(string n, int a, string t, double b)
+    {
+        name = n;
+        accno = a;
+        type = t;
+        balance = b;
+    }
+
+    void deposit()
+    {
+        int a;
+        cout << "Enter amount to deposit: ";
+        cin >> a;
+
+        balance = balance + a;
+    }
+
+    void withdraw()
+    {
+        int a;
+        cout << "Enter amount to withdraw: ";
+        cin >> a;
+
+        if(a <= balance)
+            balance = balance - a;
+        else
+            cout << "Insufficient balance\n";
+    }
+
+    void display()
+    {
+        cout << "\nName: " << name;
+        cout << "\nBalance: " << balance;
+    }
+
+    ~Bank()
+    {
+        cout << "\nAccount closed";
+    }
+};
+
+int main()
+{
+    Bank b("Nani", 1234, "Savings", 5000);
+
+    b.deposit();
+    b.withdraw();
+    b.display();
+
+    return 0;
+}
+
+Output:
+Enter amount to deposit: 200000
+Enter amount to withdraw: 100000
+
+Name: Nani
+Balance: 105000
+Account closed
+
+=== Code Execution Successful ===
