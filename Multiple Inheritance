@@ -1,0 +1,91 @@
+#include <iostream>
+using namespace std;
+
+class Worker
+{
+protected:
+    int code;
+    string name;
+    float salary;
+
+public:
+    void acceptWorker()
+    {
+        cout << "Enter code: ";
+        cin >> code;
+
+        cout << "Enter name: ";
+        cin >> name;
+
+        cout << "Enter salary: ";
+        cin >> salary;
+    }
+};
+
+class Officer
+{
+protected:
+    float DA, HRA;
+
+public:
+    void acceptOfficer()
+    {
+        cout << "Enter DA: ";
+        cin >> DA;
+
+        cout << "Enter HRA: ";
+        cin >> HRA;
+    }
+};
+
+class Manager : public Worker, public Officer
+{
+    float TA, gross;
+
+public:
+    void calculate()
+    {
+        TA = salary * 0.10;
+        gross = salary + DA + HRA + TA;
+    }
+
+    void display()
+    {
+        cout << "\nCode: " << code;
+        cout << "\nName: " << name;
+        cout << "\nSalary: " << salary;
+        cout << "\nDA: " << DA;
+        cout << "\nHRA: " << HRA;
+        cout << "\nTA: " << TA;
+        cout << "\nGross Salary: " << gross;
+    }
+};
+
+int main()
+{
+    Manager m;
+
+    m.acceptWorker();
+    m.acceptOfficer();
+    m.calculate();
+    m.display();
+
+    return 0;
+}
+
+Output:
+Enter code: 123
+Enter name: nani
+Enter salary: 200000
+Enter DA: 43
+Enter HRA: 452
+
+Code: 123
+Name: nani
+Salary: 200000
+DA: 43
+HRA: 452
+TA: 20000
+Gross Salary: 220495
+
+=== Code Execution Successful ===
