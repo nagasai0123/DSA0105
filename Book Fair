@@ -1,0 +1,55 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+class BookFair
+{
+    string Bname;
+    double price;
+
+public:
+    void Input()
+    {
+        cout << "Enter book name: ";
+        getline(cin, Bname);
+
+        cout << "Enter price: ";
+        cin >> price;
+    }
+
+    void calculate()
+    {
+        if(price <= 1000)
+            price = price - price * 0.02;
+        else if(price <= 3000)
+            price = price - price * 0.10;
+        else
+            price = price - price * 0.15;
+    }
+
+    void display()
+    {
+        cout << "\nBook Name: " << Bname;
+        cout << "\nPrice after discount: " << price;
+    }
+};
+
+int main()
+{
+    BookFair b;
+
+    b.Input();
+    b.calculate();
+    b.display();
+
+    return 0;
+}
+
+Output:
+Enter book name: without you i'm nothing
+Enter price: 200
+
+Book Name: without you i'm nothing
+Price after discount: 196
+
+=== Code Execution Successful ===
