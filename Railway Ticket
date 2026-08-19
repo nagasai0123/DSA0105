@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class RailwayTicket
+{
+    string name, coach;
+    long mobno;
+    int amt, totalamt;
+
+public:
+    void accept()
+    {
+        cout << "Enter name: ";
+        cin >> name;
+
+        cout << "Enter coach: ";
+        cin >> coach;
+
+        cout << "Enter mobile number: ";
+        cin >> mobno;
+
+        cout << "Enter basic amount: ";
+        cin >> amt;
+    }
+
+    void update()
+    {
+        if(coach == "First_AC")
+            totalamt = amt + 700;
+        else if(coach == "Second_AC")
+            totalamt = amt + 500;
+        else if(coach == "Third_AC")
+            totalamt = amt + 250;
+        else
+            totalamt = amt;
+    }
+
+    void display()
+    {
+        cout << "\nName: " << name;
+        cout << "\nCoach: " << coach;
+        cout << "\nMobile: " << mobno;
+        cout << "\nTotal Amount: " << totalamt;
+    }
+};
+
+int main()
+{
+    RailwayTicket r;
+    r.accept();
+    r.update();
+    r.display();
+
+    return 0;
+}
+
+Output:
+Enter name: Nani
+Enter coach: Third_AC
+Enter mobile number: 9876543210
+Enter basic amount: 2000
+
+Name: Nani
+Coach: Third_AC
+Mobile: 9876543210
+Total Amount: 2250
+
+=== Code Execution Successful ===
