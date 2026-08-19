@@ -1,0 +1,176 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+protected:
+    string name, address, phone;
+
+public:
+    void acceptPerson()
+    {
+        cout << "Enter name: ";
+        cin >> name;
+
+        cout << "Enter address: ";
+        cin >> address;
+
+        cout << "Enter phone: ";
+        cin >> phone;
+    }
+};
+
+class Employee : public Person
+{
+    int eno;
+    string ename;
+
+public:
+    void accept()
+    {
+        cout << "\nEmployee Number: ";
+        cin >> eno;
+
+        cout << "Employee Name: ";
+        cin >> ename;
+
+        acceptPerson();
+    }
+
+    void display()
+    {
+        cout << "\nEmployee: " << ename;
+        cout << "\nEmployee No: " << eno;
+        cout << "\nAddress: " << address;
+        cout << "\nPhone: " << phone << endl;
+    }
+};
+
+class Manager : public Person
+{
+    string designation, department;
+    float salary;
+
+public:
+    void accept()
+    {
+        cout << "\nDesignation: ";
+        cin >> designation;
+
+        cout << "Department: ";
+        cin >> department;
+
+        cout << "Basic Salary: ";
+        cin >> salary;
+
+        acceptPerson();
+    }
+
+    void display()
+    {
+        cout << "\nManager: " << name;
+        cout << "\nDesignation: " << designation;
+        cout << "\nDepartment: " << department;
+        cout << "\nSalary: " << salary << endl;
+    }
+
+    float getSalary()
+    {
+        return salary;
+    }
+};
+
+int main()
+{
+    int n;
+
+    cout << "Enter number of employees/managers: ";
+    cin >> n;
+
+    Employee e[10];
+    Manager m[10];
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << "\nEmployee " << i + 1;
+        e[i].accept();
+    }
+
+    for(int i = 0; i < n; i++)
+    {
+        cout << "\nManager " << i + 1;
+        m[i].accept();
+    }
+
+    cout << "\n--- Employees ---\n";
+    for(int i = 0; i < n; i++)
+        e[i].display();
+
+    cout << "\n--- Managers ---\n";
+    for(int i = 0; i < n; i++)
+        m[i].display();
+
+    int pos = 0;
+
+    for(int i = 1; i < n; i++)
+    {
+        if(m[i].getSalary() > m[pos].getSalary())
+            pos = i;
+    }
+
+    cout << "\nManager with Highest Salary:\n";
+    m[pos].display();
+
+    return 0;
+}
+
+Output:
+Enter number of employees/managers: 2
+
+Employee 1
+Employee Number: 1234567890
+Employee Name: Raju
+Enter name: Raju
+Enter address: nellore
+Enter phone: 893670346
+
+Employee 2
+Employee Number: 89437309345
+Employee Name: Enter name: Enter address: Enter phone: 
+Manager 1
+Designation: Department: Basic Salary: Enter name: Enter address: Enter phone: 
+Manager 2
+Designation: Department: Basic Salary: Enter name: Enter address: Enter phone: 
+--- Employees ---
+
+Employee: Raju
+Employee No: 1234567890
+Address: nellore
+Phone: 893670346
+
+Employee: 
+Employee No: 2147483647
+Address: 
+Phone: 
+
+--- Managers ---
+
+Manager: 
+Designation: 
+Department: 
+Salary: 2.67305e-39
+
+Manager: 
+Designation: 
+Department: 
+Salary: 2.65491e-39
+
+Manager with Highest Salary:
+
+Manager: 
+Designation: 
+Department: 
+Salary: 2.67305e-39
+
+
+=== Code Execution Successful ===
