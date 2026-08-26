@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class Reservation {
+    string name;
+    bool booked;
+
+public:
+    Reservation(string n) {
+        name = n;
+        booked = false;
+    }
+
+    void book() {
+        booked = true;
+        cout << "Reservation booked for " << name << endl;
+    }
+
+    void cancel() {
+        booked = false;
+        cout << "Reservation cancelled for " << name << endl;
+    }
+
+    void display() {
+        if(booked)
+            cout << "Reservation: Booked" << endl;
+        else
+            cout << "Reservation: Not Booked" << endl;
+    }
+};
+
+int main() {
+    Reservation r("John Doe");
+
+    r.book();
+    r.display();
+
+    r.cancel();
+    r.display();
+
+    return 0;
+}

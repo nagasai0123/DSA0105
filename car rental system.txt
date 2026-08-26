@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class Car {
+    string model;
+    float cost;
+    bool available;
+
+public:
+    Car(string m, float c) {
+        model = m;
+        cost = c;
+        available = true;
+    }
+
+    void book() {
+        available = false;
+    }
+
+    void returnCar() {
+        available = true;
+    }
+
+    void display() {
+        cout << "Car Model: " << model << endl;
+        cout << "Rental Cost Per Day: " << cost << endl;
+        cout << "Availability: " << (available ? "Available" : "Not Available");
+    }
+};
+
+int main() {
+    Car c("Toyota Camry", 50);
+
+    cout << "Available Cars in the Rental System:" << endl;
+    c.display();
+
+    return 0;
+}

@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class Inventory {
+    string item;
+    int quantity;
+
+public:
+    Inventory(string i, int q) {
+        item = i;
+        quantity = q;
+    }
+
+    void addStock(int q) {
+        quantity += q;
+        cout << "Inventory updated." << endl;
+        cout << "Item: " << item << ", Quantity: " << quantity << endl;
+    }
+
+    void removeStock(int q) {
+        quantity -= q;
+        cout << "Inventory updated." << endl;
+        cout << "Item: " << item << ", Quantity: " << quantity << endl;
+    }
+};
+
+int main() {
+    Inventory i("Laptop", 10);
+
+    i.addStock(0);
+    i.removeStock(3);
+
+    return 0;
+}

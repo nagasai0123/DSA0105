@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+    long long accountNumber;
+    string name;
+    float balance;
+
+public:
+    BankAccount(long long acc, string n, float b) {
+        accountNumber = acc;
+        name = n;
+        balance = b;
+    }
+
+    void deposit(float amount) {
+        balance += amount;
+    }
+
+    void withdraw(float amount) {
+        balance -= amount;
+    }
+
+    void display() {
+        cout << "Account Number: " << accountNumber << endl;
+        cout << "Account Holder Name: " << name << endl;
+        cout << "Balance: " << balance << endl;
+    }
+};
+
+int main() {
+    BankAccount b(1234567890, "John Doe", 5000);
+
+    b.deposit(2000);
+    b.withdraw(1000);
+
+    b.display();
+
+    return 0;
+}

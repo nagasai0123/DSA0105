@@ -1,0 +1,68 @@
+#include <iostream>
+using namespace std;
+
+class Shape {
+public:
+    virtual void display() {
+        cout << "Shape" << endl;
+    }
+};
+
+class Square : public Shape {
+    int side;
+
+public:
+    Square(int s) {
+        side = s;
+    }
+
+    void display() {
+        cout << "Shape: Square" << endl;
+        cout << "Side: " << side << endl;
+        cout << "Area: " << side * side << endl;
+    }
+};
+
+class Circle : public Shape {
+    float radius;
+
+public:
+    Circle(float r) {
+        radius = r;
+    }
+
+    void display() {
+        cout << "Shape: Circle" << endl;
+        cout << "Radius: " << radius << endl;
+        cout << "Area: " << 3.14159 * radius * radius << endl;
+    }
+};
+
+class Triangle : public Shape {
+    float base, height;
+
+public:
+    Triangle(float b, float h) {
+        base = b;
+        height = h;
+    }
+
+    void display() {
+        cout << "Shape: Triangle" << endl;
+        cout << "Base: " << base << endl;
+        cout << "Height: " << height << endl;
+        cout << "Area: " << 0.5 * base * height << endl;
+    }
+};
+
+int main() {
+    Square s(5);
+    Circle c(4);
+    Triangle t(6, 4);
+
+    s.display();
+    c.display();
+    t.display();
+
+    return 0;
+}

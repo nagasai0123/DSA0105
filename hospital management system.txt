@@ -1,0 +1,53 @@
+#include <iostream>
+using namespace std;
+
+class Patient {
+public:
+    string name;
+    int id;
+
+    Patient(string n, int i) {
+        name = n;
+        id = i;
+    }
+
+    void display() {
+        cout << "Patient: " << name << endl;
+        cout << "Patient ID: " << id << endl;
+    }
+};
+
+class Doctor {
+public:
+    string name;
+
+    Doctor(string n) {
+        name = n;
+    }
+
+    void display() {
+        cout << "Doctor: " << name << endl;
+    }
+};
+
+class Appointment {
+public:
+    void schedule(Patient p, Doctor d) {
+        cout << "Appointment scheduled successfully." << endl;
+        cout << "Patient: " << p.name << endl;
+        cout << "Doctor: " << d.name << endl;
+    }
+};
+
+int main() {
+    Patient p("John Doe", 101);
+    Doctor d("Dr. Smith");
+
+    p.display();
+    d.display();
+
+    Appointment a;
+    a.schedule(p, d);
+
+    return 0;
+}

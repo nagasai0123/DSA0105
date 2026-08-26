@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+class ShoppingCart {
+    string item;
+    float price;
+    int quantity;
+
+public:
+    ShoppingCart(string i, float p, int q) {
+        item = i;
+        price = p;
+        quantity = q;
+    }
+
+    void addItem() {
+        cout << "Item added to cart: " << item << ", Price: " << price << endl;
+        cout << "Quantity: " << quantity << endl;
+    }
+
+    void removeItem(int q) {
+        quantity -= q;
+        cout << "Item removed from cart: " << item << endl;
+        cout << "Remaining Quantity: " << quantity << endl;
+    }
+
+    void totalCost() {
+        cout << "Total Cost of Items in Cart: " << price * quantity;
+    }
+};
+
+int main() {
+    ShoppingCart cart("Laptop", 1000, 2);
+
+    cart.addItem();
+    cart.removeItem(1);
+    cart.totalCost();
+
+    return 0;
+}

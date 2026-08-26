@@ -1,0 +1,46 @@
+#include <iostream>
+using namespace std;
+
+class Game {
+    string name;
+
+public:
+    Game(string n) {
+        name = n;
+    }
+
+    void display() {
+        cout << "Game: " << name << endl;
+    }
+};
+
+class User {
+    string name;
+    int score;
+
+public:
+    User(string n, int s) {
+        name = n;
+        score = s;
+    }
+
+    void displayScore() {
+        cout << "User: " << name << endl;
+        cout << "Score: " << score << endl;
+    }
+};
+
+int main() {
+    Game g("Cricket");
+
+    User u1("John", 500);
+    User u2("Alex", 800);
+
+    g.display();
+
+    cout << "High Scores:" << endl;
+    u2.displayScore();
+    u1.displayScore();
+
+    return 0;
+}

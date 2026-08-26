@@ -1,0 +1,38 @@
+#include <iostream>
+using namespace std;
+
+class Profile {
+    string name;
+    string post;
+    string friendName;
+
+public:
+    Profile(string n) {
+        name = n;
+    }
+
+    void addPost(string p) {
+        post = p;
+    }
+
+    void addFriend(string f) {
+        friendName = f;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Post: " << post << endl;
+        cout << "Friend: " << friendName << endl;
+    }
+};
+
+int main() {
+    Profile p("John Doe");
+
+    p.addPost("Hello Everyone!");
+    p.addFriend("Jane Smith");
+
+    p.display();
+
+    return 0;
+}

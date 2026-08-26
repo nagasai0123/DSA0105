@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+public:
+    string name, id;
+
+    Student(string n, string i) {
+        name = n;
+        id = i;
+    }
+
+    void display() {
+        cout << "Student added successfully: " << name
+             << ", Student ID: " << id << endl;
+    }
+};
+
+class Teacher {
+public:
+    string name, id;
+
+    Teacher(string n, string i) {
+        name = n;
+        id = i;
+    }
+
+    void display() {
+        cout << "Teacher added successfully: " << name
+             << ", Teacher ID: " << id << endl;
+    }
+};
+
+class Course {
+public:
+    string id;
+
+    Course(string i) {
+        id = i;
+    }
+
+    void enrollStudent() {
+        cout << "Student enrolled in course: " << id << endl;
+    }
+
+    void assignTeacher() {
+        cout << "Teacher assigned to course: " << id << endl;
+    }
+};
+
+int main() {
+    Student s("John Doe", "12345");
+    Teacher t("Jane Smith", "T1001");
+    Course c("CSCI101");
+
+    s.display();
+    t.display();
+    c.enrollStudent();
+    c.assignTeacher();
+
+    return 0;
+}

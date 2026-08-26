@@ -1,0 +1,60 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+class Circle {
+    float r;
+
+public:
+    Circle(float x) {
+        r = x;
+    }
+
+    void display() {
+        cout << "Circle - Area: " << 3.14159 * r * r << ", Perimeter: " << 2 * 3.14159 * r << endl;
+    }
+};
+
+class Rectangle {
+    float l, w;
+
+public:
+    Rectangle(float x, float y) {
+        l = x;
+        w = y;
+    }
+
+    void display() {
+        cout << "Rectangle - Area: " << l * w << ", Perimeter: " << 2 * (l + w) << endl;
+    }
+};
+
+class Triangle {
+    float b, h, a, c;
+
+public:
+    Triangle(float x, float y, float p, float q, float r) {
+        b = x;
+        h = y;
+        a = p;
+        c = q;
+        this->c = r;
+    }
+
+    void display() {
+        cout << "Triangle - Area: " << 0.5 * b * h;
+        cout << ", Perimeter: " << a + h + c << endl;
+    }
+};
+
+int main() {
+    Circle c(5);
+    Rectangle r(4, 6);
+    Triangle t(3, 4, 3, 4, 5);
+
+    c.display();
+    r.display();
+    t.display();
+
+    return 0;
+}

@@ -1,0 +1,62 @@
+#include <iostream>
+using namespace std;
+
+class Vehicle {
+protected:
+    string make, model;
+
+public:
+    Vehicle(string m, string mo) {
+        make = m;
+        model = mo;
+    }
+
+    void display() {
+        cout << "Make: " << make << endl;
+        cout << "Model: " << model << endl;
+    }
+
+    void rent() {
+        cout << "Vehicle rented" << endl;
+    }
+
+    void sell() {
+        cout << "Vehicle sold" << endl;
+    }
+};
+
+class Car : public Vehicle {
+public:
+    Car(string m, string mo) : Vehicle(m, mo) {}
+};
+
+class Bike : public Vehicle {
+public:
+    Bike(string m, string mo) : Vehicle(m, mo) {}
+};
+
+class Truck : public Vehicle {
+public:
+    Truck(string m, string mo) : Vehicle(m, mo) {}
+};
+
+int main() {
+    Car c("Toyota", "Camry");
+    Bike b("Honda", "CBR");
+    Truck t("Tata", "Truck");
+
+    c.display();
+    c.rent();
+
+    cout << endl;
+
+    b.display();
+    b.sell();
+
+    cout << endl;
+
+    t.display();
+    t.rent();
+
+    return 0;
+}

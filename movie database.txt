@@ -1,0 +1,45 @@
+#include <iostream>
+using namespace std;
+
+class Movie {
+    string title, director, genre;
+    int year;
+
+public:
+    Movie(string t, string d, string g, int y) {
+        title = t;
+        director = d;
+        genre = g;
+        year = y;
+    }
+
+    void addMovie() {
+        cout << "Movie added successfully:" << endl;
+        display();
+    }
+
+    void display() {
+        cout << "Title: " << title << endl;
+        cout << "Director: " << director << endl;
+        cout << "Genre: " << genre << endl;
+        cout << "Release Year: " << year << endl;
+    }
+
+    void deleteMovie() {
+        cout << "Movie deleted successfully: " << title << endl;
+    }
+};
+
+int main() {
+    Movie m("Inception", "Christopher Nolan", "Science Fiction", 2010);
+
+    m.addMovie();
+
+    cout << endl << "Movie Details:" << endl;
+    m.display();
+
+    cout << endl;
+    m.deleteMovie();
+
+    return 0;
+}

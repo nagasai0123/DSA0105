@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+class Student {
+    string name;
+    int id;
+    float grades[4];
+
+public:
+    Student(string n, int i, float g[]) {
+        name = n;
+        id = i;
+
+        for(int j = 0; j < 4; j++)
+            grades[j] = g[j];
+    }
+
+    float average() {
+        float sum = 0;
+
+        for(int j = 0; j < 4; j++)
+            sum += grades[j];
+
+        return sum / 4;
+    }
+
+    void display() {
+        cout << "Student Name: " << name << endl;
+        cout << "Student ID: " << id << endl;
+        cout << "Average Grade: " << average();
+    }
+};
+
+int main() {
+    float g[] = {85.5, 90, 87, 92.5};
+
+    Student s("Jane Doe", 12345, g);
+
+    s.display();
+
+    return 0;
+}

@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+class BankAccount {
+    long long accNo;
+    string name;
+    int balance;
+
+public:
+    BankAccount(long long a, string n, int b) {
+        accNo = a;
+        name = n;
+        balance = b;
+    }
+
+    void display() {
+        cout << "Account Number: " << accNo << endl;
+        cout << "Account Holder Name: " << name << endl;
+        cout << "Balance: " << balance << endl;
+    }
+
+    void transfer(BankAccount &to, int amount) {
+        balance -= amount;
+        to.balance += amount;
+    }
+
+    int getBalance() {
+        return balance;
+    }
+};
+
+int main() {
+    BankAccount a1(1234567890, "John Doe", 5000);
+    BankAccount a2(987654321, "Jane Smith", 3000);
+
+    cout << "Accounts created successfully." << endl;
+
+    cout << "Account 1:" << endl;
+    a1.display();
+
+    cout << endl << "Account 2:" << endl;
+    a2.display();
+
+    a1.transfer(a2, 2000);
+
+    cout << endl << "Funds transferred successfully." << endl;
+    cout << "Updated Account 1 Balance: " << a1.getBalance() << endl;
+    cout << "Updated Account 2 Balance: " << a2.getBalance() << endl;
+
+    cout << endl << "All Account Details:" << endl;
+
+    cout << "Account 1:" << endl;
+    a1.display();
+
+    cout << endl << "Account 2:" << endl;
+    a2.display();
+
+    return 0;
+}

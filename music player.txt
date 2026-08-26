@@ -1,0 +1,34 @@
+#include <iostream>
+using namespace std;
+
+class MusicPlayer {
+    string song, artist;
+
+public:
+    MusicPlayer(string s, string a) {
+        song = s;
+        artist = a;
+    }
+
+    void play() {
+        cout << "Now playing: " << song << " by " << artist << endl;
+    }
+
+    void pause() {
+        cout << "Song paused" << endl;
+    }
+
+    void stop() {
+        cout << "Song stop" << endl;
+    }
+};
+
+int main() {
+    MusicPlayer m("Shape of You", "Ed Sheeran");
+
+    m.play();
+    m.pause();
+    m.stop();
+
+    return 0;
+}

@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class MenuItem {
+public:
+    string name;
+    float price;
+
+    MenuItem(string n, float p) {
+        name = n;
+        price = p;
+    }
+};
+
+class Order {
+    MenuItem item;
+    int quantity;
+
+public:
+    Order(MenuItem i, int q) : item(i) {
+        quantity = q;
+    }
+
+    void display() {
+        cout << "Item: " << item.name << endl;
+        cout << "Quantity: " << quantity << endl;
+        cout << "Price: " << item.price << endl;
+    }
+
+    void bill() {
+        cout << "Total Bill: " << item.price * quantity;
+    }
+};
+
+int main() {
+    MenuItem item("Pizza", 250);
+
+    Order order(item, 2);
+
+    order.display();
+    order.bill();
+
+    return 0;
+}
