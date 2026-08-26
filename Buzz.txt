@@ -1,0 +1,10 @@
+#include<iostream>
+using namespace std;
+int main(){
+  int n=7;
+  if(n%7==0||n%10==7)
+    cout<<n<<"is a buzz number";
+  else
+    cout<<n<<"is not a buzz number";
+  return 0;
+}
